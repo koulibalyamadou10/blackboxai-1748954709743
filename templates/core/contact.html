@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us - Template Market{% endblock %}
+
+{% block content %}
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div class="relative bg-white shadow-xl">
+            <h2 class="sr-only">Contact us</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3">
+                <!-- Contact information -->
+                <div class="relative overflow-hidden py-10 px-6 bg-black sm:px-10 xl:p-12">
+                    <div class="absolute inset-0 pointer-events-none sm:hidden" aria-hidden="true">
+                        <svg class="absolute inset-0 w-full h-full" width="343" height="388" viewBox="0 0 343 388" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z" fill="url(#linear1)" fill-opacity=".1" />
+                            <defs>
+                                <linearGradient id="linear1" x1="254.553" y1="107.554" x2="961.66" y2="814.66" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fff"></stop>
+                                    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="absolute inset-0 pointer-events-none sm:hidden" aria-hidden="true">
+                        <svg class="absolute inset-0 w-full h-full" width="343" height="388" viewBox="0 0 343 388" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z" fill="url(#linear2)" fill-opacity=".1" />
+                            <defs>
+                                <linearGradient id="linear2" x1="254.553" y1="107.554" x2="961.66" y2="814.66" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fff"></stop>
+                                    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white">Contact information</h3>
+                    <p class="mt-6 text-base text-gray-200 max-w-3xl">
+                        Have questions about our templates or need support? We're here to help. Fill out the form and we'll get back to you as soon as possible.
+                    </p>
+                    <dl class="mt-8 space-y-6">
+                        <dt><span class="sr-only">Email</span></dt>
+                        <dd class="flex text-base text-gray-200">
+                            <svg class="flex-shrink-0 w-6 h-6 text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span class="ml-3">support@templatemarket.com</span>
+                        </dd>
+                    </dl>
+                    <ul role="list" class="mt-8 flex space-x-12">
+                        <li>
+                            <a class="text-gray-200 hover:text-gray-100" href="#">
+                                <span class="sr-only">Facebook</span>
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-gray-200 hover:text-gray-100" href="#">
+                                <span class="sr-only">Twitter</span>
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-gray-200 hover:text-gray-100" href="#">
+                                <span class="sr-only">Instagram</span>
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact form -->
+                <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
+                    <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
+                    <form method="POST" class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                        {% csrf_token %}
+                        <div class="sm:col-span-2">
+                            <label for="name" class="block text-sm font-medium text-gray-900">Name</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" required class="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="email" class="block text-sm font-medium text-gray-900">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" required class="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="subject" class="block text-sm font-medium text-gray-900">Subject</label>
+                            <div class="mt-1">
+                                <input type="text" name="subject" id="subject" required class="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="message" class="block text-sm font-medium text-gray-900">Message</label>
+                            <div class="mt-1">
+                                <textarea name="message" id="message" rows="4" required class="py-3 px-4 block w-full shadow-sm focus:ring-black focus:border-black border-gray-300 rounded-md"></textarea>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
