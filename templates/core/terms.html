@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Terms of Service - Template Market{% endblock %}
+
+{% block content %}
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div class="text-lg max-w-prose mx-auto">
+            <h1>
+                <span class="block text-base text-center text-black font-semibold tracking-wide uppercase">Legal</span>
+                <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Terms of Service</span>
+            </h1>
+
+            <div class="mt-8 prose prose-lg text-gray-500 mx-auto">
+                <h2 class="text-xl font-bold text-gray-900">1. Terms</h2>
+                <p>
+                    By accessing Template Market, you agree to be bound by these terms of service and agree that you are responsible for compliance with any applicable local laws.
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">2. License and Usage</h2>
+                <p>
+                    When you purchase a template from Template Market, you receive a non-exclusive license to use the template for a single project. The license is non-transferable and cannot be resold.
+                </p>
+                <ul class="list-disc pl-5">
+                    <li>You may use the template for your personal or client projects</li>
+                    <li>You may modify the template to suit your needs</li>
+                    <li>You may not redistribute or resell the template</li>
+                    <li>You may not include the template in a product offered for sale</li>
+                </ul>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">3. Template Quality</h2>
+                <p>
+                    All templates on Template Market are reviewed for quality before being listed. However, we make no guarantees about the suitability of the templates for your specific purpose.
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">4. Refund Policy</h2>
+                <p>
+                    Due to the digital nature of our products, we generally do not offer refunds. However, if you experience technical issues with a template, please contact our support team.
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">5. User Accounts</h2>
+                <p>
+                    You are responsible for maintaining the security of your account and password. Template Market cannot and will not be liable for any loss or damage from your failure to comply with this security obligation.
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">6. Intellectual Property</h2>
+                <p>
+                    The templates, excluding third-party components, are owned by their respective creators. When you purchase a template, you receive a license to use it as specified in these terms.
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">7. Limitation of Liability</h2>
+                <p>
+                    Template Market shall not be liable for any damages arising out of or in connection with the use or inability to use our templates or services.
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">8. Changes to Terms</h2>
+                <p>
+                    We reserve the right to modify these terms at any time. We will notify users of any changes by updating the date at the bottom of this page.
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mt-8">9. Contact</h2>
+                <p>
+                    If you have any questions about these terms, please contact us through our contact page.
+                </p>
+            </div>
+
+            <div class="mt-8 text-center text-gray-500">
+                <p>Last updated: {% now "F j, Y" %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
