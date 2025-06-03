@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Browse Templates - Template Market{% endblock %}
+
+{% block content %}
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="pb-12">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">Browse Templates</h1>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500">Find the perfect template for your next project.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-col md:flex-row gap-8 mb-8">
+            <!-- Categories -->
+            <div class="w-full md:w-64">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Categories</h3>
+                <div class="space-y-4">
+                    <a href="{% url 'templates_store:template_list' %}" 
+                       class="block text-gray-600 hover:text-black {% if not current_category %}font-semibold text-black{% endif %}">
+                        All Templates
+                    </a>
+                    {% for category in categories %}
+                    <a href="{% url 'templates_store:template_list_by_category' category.slug %}"
+                       class="block text-gray-600 hover:text-black {% if current_category == category.slug %}font-semibold text-black{% endif %}">
+                        {{ category.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <!-- Type Filter -->
+                <h3 class="text-lg font-medium text-gray-900 mt-8 mb-4">Type</h3>
+                <div class="space-y-4">
+                    <a href="{% url 'templates_store:template_list_by_type' 'html' %}"
+                       class="block text-gray-600 hover:text-black {% if current_type == 'html' %}font-semibold text-black{% endif %}">
+                        HTML/CSS
+                    </a>
+                    <a href="{% url 'templates_store:template_list_by_type' 'flutter' %}"
+                       class="block text-gray-600 hover:text-black {% if current_type == 'flutter' %}font-semibold text-black{% endif %}">
+                        Flutter
+                    </a>
+                    <a href="{% url 'templates_store:template_list_by_type' 'react' %}"
+                       class="block text-gray-600 hover:text-black {% if current_type == 'react' %}font-semibold text-black{% endif %}">
+                        React
+                    </a>
+                </div>
+
+                <!-- Sort Options -->
+                <h3 class="text-lg font-medium text-gray-900 mt-8 mb-4">Sort By</h3>
+                <div class="space-y-4">
+                    <a href="?sort=newest" class="block text-gray-600 hover:text-black {% if sort == 'newest' %}font-semibold text-black{% endif %}">
+                        Newest First
+                    </a>
+                    <a href="?sort=price_low" class="block text-gray-600 hover:text-black {% if sort == 'price_low' %}font-semibold text-black{% endif %}">
+                        Price: Low to High
+                    </a>
+                    <a href="?sort=price_high" class="block text-gray-600 hover:text-black {% if sort == 'price_high' %}font-semibold text-black{% endif %}">
+                        Price: High to Low
+                    </a>
+                </div>
+            </div>
+
+            <!-- Template Grid -->
+            <div class="flex-1">
+                {% if templates %}
+                    <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {% for template in templates %}
+                        <div class="group relative">
+                            <div class="w-full min-h-80 bg-gray-200 rounded-md overflow-hidden group-hover:opacity-75">
+                                {% if template.preview_image %}
+                                    <img src="{{ template.preview_image.url }}" alt="{{ template.title }}" 
+                                         class="w-full h-full object-center object-cover">
+                                {% else %}
+                                    <div class="w-full h-80 flex items-center justify-center bg-gray-100">
+                                        <span class="text-gray-400">No preview available</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="mt-4 flex justify-between">
+                                <div>
+                                    <h3 class="text-sm text-gray-700">
+                                        <a href="{% url 'templates_store:template_detail' template.slug %}">
+                                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                            {{ template.title }}
+                                        </a>
+                                    </h3>
+                                    <p class="mt-1 text-sm text-gray-500">{{ template.category.name }}</p>
+                                </div>
+                                <p class="text-sm font-medium text-gray-900">${{ template.price }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center py-12">
+                        <h3 class="text-lg font-medium text-gray-900">No templates found</h3>
+                        <p class="mt-2 text-sm text-gray-500">Try adjusting your filters or check back later for new templates.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
